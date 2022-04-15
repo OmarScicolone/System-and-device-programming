@@ -1,3 +1,5 @@
+use std::io::stdin; //libreria standard::io::per scrivere da tastiera
+
 fn main() {
     println!("Hello, world!");
 
@@ -38,7 +40,7 @@ fn main() {
     //println!("r2 = {}", r2); morto
     println!("w = {}", w);
 
-    /* Box<T> */
+    /* BOX<T> */
     let mut b = Box::new( (5, 2) ); //quel (5, 2) è una tupla
     //memoria dinamica
     //5 e 2 sono interi, nello HEAP
@@ -48,7 +50,7 @@ fn main() {
     println!("b = {:?}", *b); 
     println!("b = {:?}", b); 
 
-    /* Array */
+    /* ARRAY */
     //NON TUPLE, quindi contenuto OMOgeneo
     let a: [i32; 5] = [1, 5, 78, 99, 2];
     let b = [0; 5];     //inizializzato a [0, 0, 0, 0, 0]
@@ -56,12 +58,13 @@ fn main() {
     let l = b.len();
     let e = a[3];
 
-    /* Slice */
+    /* SLICE */
     let s2 = &a[0..2];
 
     /* STRINGHE */
     let hello: &str = "str"; //TIPO STR
 
+    
     //let mut s: String = "ciaone"; //non così... "ciaone" è di tipo &str
     let mut s1 = String::new();
     let mut s2 = String::from("hello");
@@ -78,5 +81,16 @@ fn main() {
         x+y
     }
     println!("{}", add_numbers(2, 1));
+    
+
+    /* MOVIMENTO */
+    let mut m1 = "move".to_string();
+    println!("{}1", m1);
+    
+    let m2 = m1;
+    println!("{}2", m2);
+    //println!("{}1", m1); m1 "non esite" più, è stato spostato, m1 esiste come contenitore, ma è privo di dati
+    //quindi gli assegnamo qualcos'altro
+    //volendo potrei ri-assegnare qualcosa ad m1 e la posso riusare (l'ho rigenerato)
 
 }
